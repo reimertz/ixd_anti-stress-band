@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style type="text/css">
+  
+  </style>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+<h1>Anti Stress Band</h1>
+<button class="toggle-lamp">Turn lamp on!</button>
+</body>
+
+<script type="text/javascript">
+$(function(){
+  var lamp = false;
+  $('.toggle-lamp').click(function (event){
+    console.log('asdadasdasd');
+    $.ajax({
+      type: 'GET',
+      url: '/lamp',
+      data: { 'noop': 'noop'  }
+    }).done(function(data){
+      if(lamp){
+        $('.toggle-lamp').text('Turn Lamp On!');
+      } else {
+        $('.toggle-lamp').text('Turn Lamp Off!');
+      }
+      lamp = !lamp;
+    });
+  });
+});
+</script>
+</html>

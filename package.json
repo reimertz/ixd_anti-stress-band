@@ -1,0 +1,17 @@
+{
+  "name": "anti-stress-band",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "debug": "node --debug server.js"
+  },
+  "author": "Pierre Reimertz",
+  "license": "ISC",
+  "dependencies": {
+    "johnny-five": "~0.7.34",
+    "express": "~4.2.0",
+    "body-parser": "~1.2.0"
+  }
+}
