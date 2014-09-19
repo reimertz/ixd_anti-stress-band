@@ -10,8 +10,9 @@
   "author": "Pierre Reimertz",
   "license": "ISC",
   "dependencies": {
-    "johnny-five": "~0.7.34",
+    "body-parser": "~1.2.0",
     "express": "~4.2.0",
-    "body-parser": "~1.2.0"
+    "johnny-five": "~0.7.34",
+    "jquery": "^2.1.1"
   }
 }

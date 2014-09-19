@@ -5,31 +5,64 @@
   <meta charset="utf-8">
   <title></title>
   <style type="text/css">
-  
+  h1 {  
+    font-size: 50px;
+  }
+  body {
+    margin: 0 auto;
+    text-align: center;
+  }
+  .red, .green, .orange {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin-right: 50px;
+  }
+
+  .red {
+    background: red;
+  }
+
+  .green {
+    background: green;
+  }
+
+  .orange {
+    background: orange;
+  }
+
   </style>
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body>
 <h1>Anti Stress Band</h1>
-<button class="toggle-lamp">Turn lamp on!</button>
+  <div class="green"></div>
+  <div class="orange"></div>
+  <div class="red"></div>
 </body>
 
 <script type="text/javascript">
 $(function(){
   var lamp = false;
-  $('.toggle-lamp').click(function (event){
-    console.log('asdadasdasd');
+  $('.red').click(function (event){
     $.ajax({
-      type: 'GET',
+      type: 'POST',
       url: '/lamp',
-      data: { 'noop': 'noop'  }
-    }).done(function(data){
-      if(lamp){
-        $('.toggle-lamp').text('Turn Lamp On!');
-      } else {
-        $('.toggle-lamp').text('Turn Lamp Off!');
-      }
-      lamp = !lamp;
+      data: { 'color': '#FF0000' }
+    });
+  });
+  $('.green').click(function (event){
+    $.ajax({
+      type: 'POST',
+      url: '/lamp',
+      data: { 'color': '#00FF00' }
+    });
+  });
+  $('.orange').click(function (event){
+    $.ajax({
+      type: 'POST',
+      url: '/lamp',
+      data: { 'color': '#ff8c00' }
     });
   });
 });

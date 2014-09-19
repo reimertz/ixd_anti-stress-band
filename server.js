@@ -8,22 +8,25 @@ var five = require("johnny-five"),
 app.use('/', express.static(__dirname + '/src'));
 app.use(bodyParser());
 
-app.get('/lamp', function (req, res) {
-  rgb.toggle();
+app.post('/lamp', function (req, res) {
+  console.log(req.body);
+
+  rgb.color(req.body.color);
+
   res.end();
 });
 
 app.listen(port);
 console.log('server running on: ' + port);
 
-// console.log('Initiating Arduino...');
-// five.Board().on("ready", function() {
+console.log('Initiating Arduino...');
+five.Board().on("ready", function() {
 
-//   rgb = new five.Led.RGB([6, 5, 3]);
-//   rgb.color("#ff0000");
-//   rgb.off();  
-//   console.log('Initiatin done!');
+  rgb = new five.Led.RGB([6, 5, 3]);
+  rgb.color("#ff0000");
   
-// });
+  console.log('Initiatin done!');
+  
+});
 
 
